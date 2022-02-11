@@ -135,4 +135,3 @@ LOGIN_REDIRECT_URL = 'news:index'
 LOGOUT_REDIRECT_URL = 'news:index'
 
 AUTH_PROFILE_MODULE="accounts.UserProfile"
-
