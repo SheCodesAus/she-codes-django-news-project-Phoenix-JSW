@@ -1,13 +1,23 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
+{% load static %}
 
-{% block content %}
-
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="submit">
-</form>
-
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
 {% endblock %}
 
+{% block content %}
+<div class="formpage-container">
 
+    <h2 class="section-lead">Write a Story</h2>
+    
+    <form id="form-container" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-primary" type="submit">Post</button>
+
+    <div class="form-function-buttons">
+            <a class="btn btn-secondary" href="{% url 'news:index' %}">Cancel</a>
+    </div>
+    </form>
+</div>
+{% endblock %}

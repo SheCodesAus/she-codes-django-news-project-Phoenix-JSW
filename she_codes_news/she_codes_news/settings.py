@@ -32,17 +32,20 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+
+# My Apps
     'news.apps.NewsConfig',
+    'users.apps.UsersConfig',
+    'crispy_forms', 
+
+#Django Apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'users.apps.UsersConfig'
-]
-
-
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
