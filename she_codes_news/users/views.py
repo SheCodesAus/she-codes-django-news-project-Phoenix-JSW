@@ -3,7 +3,7 @@ from django.views.generic.edit import CreateView, UpdateView
 from django.views import generic
 from .models import CustomUser
 from .forms import CustomUserCreationForm, CustomUserChangeForm
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib import messages
 
 class CreateAccountView(CreateView):
@@ -11,15 +11,14 @@ class CreateAccountView(CreateView):
     success_url = reverse_lazy('login')
     template_name = 'users/createAccount.html'
 
-class ProfileUpdateView(UpdateView):
-    form_class = CustomUserChangeForm
-    success_url = reverse_lazy('profile')
-    template_name = 'users/userProfile.html'
-
 def profile(request):
     user=request.user
     return render(request,'users/userProfile.html',{'user':user})
 
+class ProfileUpdateView(UpdateView):
+    form_class = CustomUserChangeForm
+    success_url = reverse_lazy('profile')
+    template_name = 'users/userProfile.html'
 
 # @login_required
 def userupdate(request):
