@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static 'styles.css' %}">
+{% endblock %}
+
+
+<title>edit-profile</title>
+
+{% block content %}
+<div class="formpage-container">
+    <div class ="formpage-container">
+        <h2 class="section-lead">Update Profile</h2>
+        <div id="profile-container">
+          <!-- Success Messages -->
+          {% if messages %}
+          <ul class="messages">
+          {% for message in messages %}
+              <li class="{{ message.tags }}">
+                {% if message.tags %} {{ message }}{% endif %}
+              </li>
+          {% endfor %}
+          </ul>
+          {% endif %}
+          <br>
+
+        <form action="" method="post">
+            {%csrf_token%}
+            <input type="text" name="username" placeholder="USERNAME"><br>
+            <input type="email" name="email" placeholder="EMAIL"><br>
+            <input type="password" name="password" placeholder="PASSWORD"><br>
+            <input type="text" name="address" placeholder="ADDRESS"><br>
+            <input type="submit" value="Change">
+        </form>
+
+    </div>
+{% endblock %}

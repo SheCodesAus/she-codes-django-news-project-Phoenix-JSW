@@ -1,13 +1,48 @@
 {% extends 'base.html' %}
+{% load static %}
+
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static 'styles.css' %}">
+{% endblock stylesheets %}
+
+
+<title>Login</title>
+
 
 {% block content %}
 
-<h2>Login</h2>
 
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Login</button>
-</form>
+<div class="formpage-container">
+    <h2 class="section-lead">Login</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            {{ form.as_p }}
+        </fieldset> 
+
+        <div class="form-group">
+            <button class="btn btn-success" type="submit">Login</button>
+        </div>
+        <hr class="mb-3">
+            <p class="small text-center">
+                By signing in to your account, you agree and consent to our to our</p> 
+                 <a href="">Terms of Service</a><a href="">Cookie Policy</a>  
+                 and <a href="">Privacy Policy</a>
+                This site is not protected by reCAPTCHA and is a demonstration website only.
+            </p>
+          </form>
+</div>
+
+<div class="border-top pt-3">
+    <small class="text-muted">
+        New to She-Codes-News? Create an account <a class="ml-2" href="{% url 'users:createAccount' %}">Register</a>
+    </small>
+
+
+    <div class="col-md-6 d-none d-md-flex bg-image">
+    </div>
+</div>
 
 {% endblock %}

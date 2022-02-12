@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static 'styles.css' %}">
+{% endblock stylesheets %}
+
+<title>User Profile</title>
+
+{% block content %}
+
+<div id="profile-container">
+    <!-- Success Messages -->
+    {% if messages %}
+    <ul class="messages">
+    {% for message in messages %}
+        <li class="{{ message.tags }}">
+          {% if message.tags %} {{ message }}{% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    <br>
+
+    
+    <!-- Profile Section -->
+    <section id="profile-section">
+      url('https://picsum.photos/id/1011/5472/3648'
+        <!-- <img class="profile-img" src="{{ object.profile_img.url }}" alt="Profile Image"> -->
+        <div id="profile-text">
+            <h2 class="lead">{{ object.get_full_name|default:object.username }}</h2>
+            <p>{{ object.bio | linebreaks }}</p>
+        </div>
+    </section>
