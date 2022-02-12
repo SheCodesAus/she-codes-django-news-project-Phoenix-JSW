@@ -7,11 +7,11 @@ class CustomUserCreationForm(UserCreationForm):
 
     class Meta:
         model = CustomUser
-        fields = ['username', 'email', 'bio', 'location', 'avatar']
+        fields = ['username', 'email']
     
 
 class CustomUserChangeForm(UserChangeForm):
-
     class Meta:
         model = CustomUser
-        fields = ['username', 'email', 'bio', 'location', 'avatar']
+        fields = ['username','first_name', 'last_name', 'bio', 'location','avatar']
+        labels = {'bio': 'About', 'profile_img': 'Avatar'}
