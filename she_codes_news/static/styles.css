@@ -55,7 +55,7 @@ a, p {
 
 /* Header */
 header {
-    background-image: url(./images/shecodes_banner.jpg);
+    background:rgba(0, 0, 0, 0.5);
     background-position: center;
     height: 30vh;
     display: flex;

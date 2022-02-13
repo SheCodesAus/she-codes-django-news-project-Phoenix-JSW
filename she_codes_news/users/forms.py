@@ -2,7 +2,7 @@ from dataclasses import field
 from tkinter import Label
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from .models import CustomUser
+from .models import CustomUser, Profile
 
 
 class CustomUserCreationForm(UserCreationForm):
@@ -16,6 +16,14 @@ class CustomUserChangeForm(UserChangeForm):
     class Meta:
         model = CustomUser
         fields = ['username','first_name', 'last_name', 'bio', 'location',]
-        labels = {'bio': 'About', 'profile_img': 'Profile Image'}
+        labels = {'bio': 'About'}
+
+class UpdateProfileForm(forms.ModelForm):
+        image = forms.ImageField(widget=forms.FileInput(attrs={'class': 'form-control-file'}))
+        bio = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control', 'rows': 5}))
+
+        class Meta:
+            model = Profile
+            fields = ['image']
 
 
