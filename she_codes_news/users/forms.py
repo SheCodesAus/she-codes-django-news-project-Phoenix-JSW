@@ -1,7 +1,9 @@
 from dataclasses import field
+from tkinter import Label
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from .models import CustomUser
+
 
 class CustomUserCreationForm(UserCreationForm):
 
@@ -13,6 +15,7 @@ class CustomUserCreationForm(UserCreationForm):
 class CustomUserChangeForm(UserChangeForm):
     class Meta:
         model = CustomUser
-        fields = [ 'avatar', 'username','first_name', 'last_name', 'bio', 'location',]
-        labels = {'profile_img': 'Avatar', 'bio': 'About', }
+        fields = ['username','first_name', 'last_name', 'bio', 'location',]
+        labels = {'bio': 'About', 'profile_img': 'Profile Image'}
+
 

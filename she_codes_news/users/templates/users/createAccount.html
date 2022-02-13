@@ -6,8 +6,6 @@
 <link rel="stylesheet" href="{% static 'styles.css' %}">
 {% endblock stylesheets %}
 
-<title>Create User</title>
-
 {% block content %}
 
 <div class ="formpage-container">
@@ -21,8 +19,6 @@
             {% csrf_token %}
             {{ form.as_p }}
         </fieldset> 
-        
-
         
 
         <div class="form-group">

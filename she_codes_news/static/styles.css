@@ -174,3 +174,44 @@ form p {
     background-size: cover;
     background-position: center center;
 }
+
+/* Profile Section */
+.profile-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px 20px 50px 20px;
+}
+
+#profile-section {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 30px 0 50px 0;
+}
+
+#profile p {
+    display: flex;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+# #profile-text {
+    margin-left: 50px;
+}
+
+#profile-function-buttons {
+    display: flex; 
+    justify-content: flex-end;
+    padding-bottom: 50px;
+}
+
+#profile-function-buttons a {
+    margin: 0 10px;
+}
+
+/* Images */
+.profile-img {
+    height: auto;
+    width: 250px;
+    object-fit: contain;
+}
