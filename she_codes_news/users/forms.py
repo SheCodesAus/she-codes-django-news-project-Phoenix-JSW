@@ -15,8 +15,8 @@ class CustomUserCreationForm(UserCreationForm):
 class CustomUserChangeForm(UserChangeForm):
     class Meta:
         model = CustomUser
-        fields = ['username','first_name', 'last_name', 'bio', 'location',]
-        labels = {'bio': 'About'}
+        fields = ['username','first_name', 'last_name', 'email', 'location']
+        
 
 class UpdateProfileForm(forms.ModelForm):
         image = forms.ImageField(widget=forms.FileInput(attrs={'class': 'form-control-file'}))
@@ -24,6 +24,7 @@ class UpdateProfileForm(forms.ModelForm):
 
         class Meta:
             model = Profile
-            fields = ['image']
+            fields = ['image', 'bio']
+            labels = {'bio': 'About'}
 
 

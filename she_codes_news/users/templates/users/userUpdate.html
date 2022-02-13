@@ -1,39 +1,48 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
+
 
 {% block stylesheets %}
 <link rel="stylesheet" href="{% static 'styles.css' %}">
-{% endblock %}
-
-
-<title>edit-profile</title>
+{% endblock stylesheets %}
 
 {% block content %}
-<div class="formpage-container">
-    <div class ="formpage-container">
-        <h2 class="section-lead">Update Profile</h2>
-        <div id="profile-container">
-          <!-- Success Messages -->
-          {% if messages %}
-          <ul class="messages">
-          {% for message in messages %}
-              <li class="{{ message.tags }}">
-                {% if message.tags %} {{ message }}{% endif %}
-              </li>
-          {% endfor %}
-          </ul>
-          {% endif %}
-          <br>
 
-        <form action="" method="post">
-            {%csrf_token%}
-            <input type="text" name="username" placeholder="USERNAME"><br>
-            <input type="email" name="email" placeholder="EMAIL"><br>
-            <input type="password" name="password" placeholder="PASSWORD"><br>
-            <input type="text" name="address" placeholder="ADDRESS"><br>
-            <input type="submit" value="Change">
-        </form>
-        </div>
-        </div>
+<div id="profile-container">
+  <!-- Success Messages -->
+  {% if messages %}
+  <ul class="messages">
+  {% for message in messages %}
+      <li class="{{ message.tags }}">
+        {% if message.tags %} {{ message }}{% endif %}
+      </li>
+  {% endfor %}
+  </ul>
+  {% endif %}
+  <br>
+<br>
+
+<!-- Profile Section -->
+  <div class="content-section">
+    <div class="media">
+      <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+      <div class="media-body">
+        <h2 class="account-heading">{{ user.username }}</h2>
+        <p class="text-secondary">{{ user.email }}</p>
+      </div>
     </div>
-{% endblock %}
+    <!-- FORM HERE -->
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <fieldset class="form-group">
+          <legend class="border-bottom mb-4">Profile Info</legend>
+          {{ u_form|crispy }} <!-- User form -->
+          {{ p_form|crispy }} <!-- Profile form -->
+      </fieldset>
+      <div class="form-group">
+          <button class="btn btn-outline-info" type="submit">Update</button>
+      </div>
+  </form>
+  </div>
+{% endblock content%}
