@@ -24,40 +24,19 @@ def createAccount(request):
         form = CustomUserCreationForm()
     return render(request, 'users/CreateAccount.html', {'form': form})
 
+
 @login_required # Require user logged in before they can access profile page
 def profile(request):
     user=request.user
     return render(request,'users/userProfile.html',{'user':user})
 
-class AuthorView(generic.DetailView):
-    model = CustomUser
-
 class UpdateAccountView(UpdateView):
-    form_class = CustomUserCreationForm
-    success_url = reverse_lazy('updateprofile')
+    form_class = CustomUserChangeForm
+    success_url = reverse_lazy('updateProfile')
     template_name = 'users/userUpdate.html'
 
-@login_required   #Required to update user profile
-def updateProfile(request):
-    if request.method == 'POST':
-        
-        p_form = UpdateProfileForm(request.POST,
-                                   request.FILES,
-                                   instance=request.user.profile)
-        u_form = CustomUserChangeForm(request.POST, instance=request.user) 
-        if u_form.is_valid() and p_form.is_valid():
-            p_form.save()
-            u_form.save()
-            messages.success(request, f'Your account has been updated!')
-            return redirect('profile') # Redirect back to profile page
+    def get_object(self, queryset=None):
+        return self.request.user
 
-    else:
-        p_form = UpdateProfileForm(instance=request.user.profile)
-        u_form = CustomUserChangeForm(instance=request.user)
 
-    context = {
-        'u_form': u_form,
-        'p_form': p_form
-    }
 
-    return render(request, 'users/userUpdate.html', context)

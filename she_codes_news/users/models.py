@@ -5,7 +5,6 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 class CustomUser(AbstractUser):
-    bio = models.TextField(max_length=500, blank=True)
     location = models.CharField(max_length=200, blank=True)
     bio = models.CharField(null=True, max_length=200)
 
@@ -15,7 +14,7 @@ class CustomUser(AbstractUser):
 
 class Profile(models.Model):
     CustomUser = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
-    Profile_img = models.ImageField(default='default.jpg', upload_to='profile_pics')
+    Profile_img = models.URLField(default='default.jpg')
 
     def __str__(self):
         return f'{self.CustomUser.username} Profiles'

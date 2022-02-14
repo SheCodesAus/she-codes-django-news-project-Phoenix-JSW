@@ -19,7 +19,7 @@ class CustomUserChangeForm(UserChangeForm):
         
 
 class UpdateProfileForm(forms.ModelForm):
-        image = forms.ImageField(widget=forms.FileInput(attrs={'class': 'form-control-file'}))
+        image = forms.URLField(widget=forms.FileInput(attrs={'class': 'form-control-file'}))
         bio = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control', 'rows': 5}))
 
         class Meta:

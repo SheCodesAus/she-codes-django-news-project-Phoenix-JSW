@@ -139,5 +139,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'news:index'
 LOGOUT_REDIRECT_URL = 'news:index'
 
-AUTH_PROFILE_MODULE="users.UserProfile"
+AUTH_PROFILE_MODEL="users.Profile"
 AUTH_USER_MODEL = 'users.CustomUser'
