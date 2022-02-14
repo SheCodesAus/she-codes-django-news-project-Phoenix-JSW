@@ -24,6 +24,8 @@ def createAccount(request):
         form = CustomUserCreationForm()
     return render(request, 'users/CreateAccount.html', {'form': form})
 
+class AuthorView(generic.DetailView):
+    model = CustomUser
 
 @login_required # Require user logged in before they can access profile page
 def profile(request):

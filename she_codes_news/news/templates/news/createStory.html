@@ -2,22 +2,29 @@
 {% load static %}
 
 {% block stylesheets %}
-<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
-{% endblock %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">{% endblock stylesheets %}
 
 {% block content %}
-<div class="formpage-container">
 
+<div class="formpage-container">
     <h2 class="section-lead">Write a Story</h2>
     
     <form id="form-container" method="post" enctype="multipart/form-data">
+
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4"> Please Share your  Latest News with SheCodes! </legend>
         {% csrf_token %}
         {{ form.as_p }}
-        <button class="btn btn-primary" type="submit">Post</button>
+        </fieldset> 
 
-    <div class="form-function-buttons">
-            <a class="btn btn-secondary" href="{% url 'news:index' %}">Cancel</a>
-    </div>
+        <div class="form-group"></div>
+        <button class="btn btn-success" type="submit">Post</button>
+        </div>
+        
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Cancel & Return to Home Page! <a class="ml-2"  href="{% url 'news:index' %}">Cancel</a>
+        </div>
     </form>
 </div>
 {% endblock %}
