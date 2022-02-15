@@ -41,7 +41,7 @@ class NewsStory(models.Model):
     pub_date = models.DateTimeField(default=timezone.now)
     mod_date = models.DateTimeField(blank=True, null=True)
     content = models.TextField()
-    image = models.UrlField(null=True, blank=True)
+    image = models.URLField(null=True, blank=True)
     story_category = models.ManyToManyField(Category, related_name='stories')
     slug = models.SlugField(unique=True, default=uuid.uuid4)
     status = models.CharField(max_length=10, choices=options, default='draft')     
