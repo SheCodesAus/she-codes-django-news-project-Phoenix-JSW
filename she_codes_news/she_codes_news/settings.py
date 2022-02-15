@@ -42,7 +42,7 @@ INSTALLED_APPS = [
 # My Apps
     'news.apps.NewsConfig',
     'users.apps.UsersConfig',
-    'crispy_forms', 
+   
 
 #Django Apps
     'django.contrib.admin',
