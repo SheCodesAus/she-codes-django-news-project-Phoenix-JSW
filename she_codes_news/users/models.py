@@ -7,8 +7,7 @@ from django.dispatch import receiver
 class CustomUser(AbstractUser):
     location = models.CharField(max_length=200, blank=True)
     bio = models.CharField(null=True, max_length=200)
-
-
+    avatar = models.URLField(null=True, blank=True)
     def __str__(self):
         return self.username
 

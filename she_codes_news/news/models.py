@@ -24,6 +24,10 @@ class Category(models.Model):
             self.slug = slugify(self.title)
         return super().save(*args, **kwargs)
 
+STATUS = (
+    (0,'Draft'),
+    (1,'Published')
+    )        
 
 class NewsStory(models.Model):
 
