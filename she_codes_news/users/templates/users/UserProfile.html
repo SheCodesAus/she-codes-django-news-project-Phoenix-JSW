@@ -30,9 +30,9 @@
             <div class="image">
                 <div class="circle-1"></div>
                 <div class="circle-2"></div>
-                <img class="avatar-img" src="#" alt="Profile Image">
+                <img class=%static 'avatar-img' src="https://i.etsystatic.com/9193132/r/il/93fcac/1374669102/il_794xN.1374669102_kk7g.jpg;size=200" alt="Profile Image">
                 <div id="profile-text">
-                <h2 class="lead">{{request.user.get_full_name}}</h2><width="70" height="70">
+                <h2 class="lead">{{request.user.get_full_name}}<width="70" height="70"</h2>
             </div>
             
             <div class="name">{{ username }}</div>
@@ -64,14 +64,4 @@
   </div>
 </div>
 {% endblock content %}
-<!-- <div class="row my-3 p-3">
-  <h1>Welcome {{user.username}}</h1>
-  <h2>{{ user.username }}</h2>
-  <p>{{ user.first_name }}</p>
-  <p>{{ user.last_name}}</p>
-  <p>{{ user.email }}</p>
-  <p>{{ user.bio }}</p>
-
-</div>       -->
-
 
