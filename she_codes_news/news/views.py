@@ -1,8 +1,8 @@
 from django.views import generic
 from django.urls import reverse_lazy
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import NewsStory, Category, Comment
-from .forms import StoryForm
+from .forms import StoryForm, CommentForm, UpdateStoryForm
 
 
 class IndexView(generic.ListView):
@@ -38,7 +38,49 @@ class AddStoryView(LoginRequiredMixin, generic.CreateView):
 class CategoryView(generic.DetailView):
     model = Category
 
+class UpdateStoryView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
+    login_url = 'users/login/'
+    model = NewsStory
+    form_class = UpdateStoryForm
+    context_object_name = 'storyForm'
+    template_name = 'news/updateStory.html'
 
+    def get_success_url(self):
+        """Get the story_id from the request object to pass to the success url"""
+        slug = self.kwargs['slug']
+        success_url = reverse_lazy('news:story', kwargs={'slug': slug})
+        return success_url
+
+    def test_func(self):
+        """Only let the user access this page if they are the author of the object being updated"""
+        return self.get_object().author == self.request.user
+
+def story_detail(request, slug):
+    template_name = 'news/story.html'
+    story = get_object_or_404(NewsStory, slug=slug)
+    comments = story.comments.all()
+    new_comment = None
+    # Comment posted
+    if request.method == 'POST':
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid() and request.user.is_authenticated:
+            # Create Comment object but don't save to database yet
+            new_comment = comment_form.save(commit=False)
+            # Assign the current story to the comment
+            new_comment.story = story
+            new_comment.name = request.user
+            # Save the comment to the database
+            new_comment.save()
+        else:
+            messages.error(request, 'Please login or register to leave a comment.')
+    else:
+        comment_form = CommentForm()
+
+    return render(request, template_name, {'story': story,
+                                           'comments': comments,
+                                           'new_comment': new_comment,
+                                           'comment_form': comment_form})
+                                           
 
 def handler404(request, exception):
     return render(request, '404.html', status=404)
