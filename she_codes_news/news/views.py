@@ -80,7 +80,16 @@ def story_detail(request, slug):
                                            'comments': comments,
                                            'new_comment': new_comment,
                                            'comment_form': comment_form})
-                                           
+
+class DeleteStoryView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
+    login_url = 'users/login/'
+    model = NewsStory
+    template_name = 'news/deleteStory.html'
+    success_url = reverse_lazy('news:index')
+    
+    def test_func(self):
+        """Only let the user access this page if they are the author of the object being deleted"""
+        return self.get_object().author == self.request.user                                          
 
 def handler404(request, exception):
     return render(request, '404.html', status=404)

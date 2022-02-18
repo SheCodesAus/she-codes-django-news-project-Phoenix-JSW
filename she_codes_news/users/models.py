@@ -10,7 +10,8 @@ class CustomUser(AbstractUser):
     bio = models.CharField(null=True, max_length=200)
     avatar = models.URLField(null=True, blank=True)
 
-
+    def __str__(self):
+        return self.username
 
 class Profile(models.Model):
     CustomUser = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
@@ -19,3 +20,4 @@ class Profile(models.Model):
     def __str__(self):
         return f'{self.CustomUser.username} Profiles'
 
+ 
