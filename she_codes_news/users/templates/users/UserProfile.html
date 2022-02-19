@@ -50,14 +50,14 @@
                     <a class="btn btn-secondary" href="{% url 'news:newsStory' %}">Write New Story</a>
                     <a class="btn btn-primary" href="{% url 'users:userUpdate' %}">Edit profile</a>
             </div>
-            <div id="own-news-container">
+            <div id="profile-news-container">
                 <h2 class="section-lead">My Stories</h2>
                 <div id="latest-stories">
                     {% comment %} {% if latest_stories %} {% endcomment %}
                         {% for story in stories %}
                             {% include "news/storyCard.html" with story=story position=forloop.counter %}
                         {% endfor %}
-                    
+                
                 </div>
             </div>
             </section>
