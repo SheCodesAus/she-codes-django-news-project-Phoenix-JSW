@@ -3,6 +3,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import NewsStory, Category, Comment
 from .forms import StoryForm, CommentForm, UpdateStoryForm
+from django.shortcuts import get_object_or_404, render
 
 
 class IndexView(generic.ListView):

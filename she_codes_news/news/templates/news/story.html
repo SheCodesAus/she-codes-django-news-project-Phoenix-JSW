@@ -8,6 +8,8 @@
 {% block content %}
 
 <div id="story-wrapper">
+    <p>{{story.slug}}</p>
+    <a href="{% url 'news:editStory' story.slug %}">Edit this Story</a>
     <h2>{{ story.title }}</h2>
     <h4>{{ story.author }}</h4>
     <div id="story-content">
