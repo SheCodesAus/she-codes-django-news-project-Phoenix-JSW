@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:600,300);
 
-$purple: #786450;
+
 
 .profile_frame {
   position: absolute;
@@ -18,7 +18,7 @@ $purple: #786450;
   background: -o-linear-gradient(bottom left, #d86cee 0%, #8809a8 100%);
   background: linear-gradient(to top right, #d86cee 0%, #b347ce 100%); 
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d86cee', endColorstr='#b347ce',GradientType=1 ); 
-  color: $purple;
+  color: purple;
 	font-family: 'Open Sans', Helvetica, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -57,7 +57,7 @@ $purple: #786450;
 			left: -3px;
 			border-width: 1px;
 			border-style: solid;
-			border-color: $purple $purple $purple transparent;
+			border-color: purple purple purple transparent;
 			border-radius: 50%;
 			transition: all 1.5s ease-in-out;
 		}
@@ -68,7 +68,7 @@ $purple: #786450;
 			height: 82px;
 			top: -6px;
 			left: -6px;
-			border-color: $purple transparent $purple $purple;
+			border-color: purple transparent purple purple;
 		}
 		
 		img {
@@ -118,10 +118,10 @@ $purple: #786450;
 			font-weight: 600;
 			box-sizing: border-box;
 			transition: all .3s ease-in-out;
-			color: $purple;
+			color: purple;
             
 			&:hover {
-				background: $purple;
+				background: purple;
 				color: #fff;
             }
 		}
