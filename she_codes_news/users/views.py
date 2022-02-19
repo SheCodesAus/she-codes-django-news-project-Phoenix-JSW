@@ -2,6 +2,7 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView
 from django.views import generic
 from .models import CustomUser
+from news.models import NewsStory
 from .forms import CustomUserCreationForm, CustomUserChangeForm, UpdateProfileForm
 from django.shortcuts import render, redirect
 from django.contrib import messages
@@ -30,7 +31,8 @@ class AuthorView(generic.DetailView):
 @login_required # Require user logged in before they can access profile page
 def profile(request):
     user=request.user
-    return render(request,'users/userProfile.html',{'user':user})
+    stories = NewsStory.objects.filter(author=user.id)
+    return render(request,'users/userProfile.html',{'user':user, 'stories': stories})
 
 class UpdateAccountView(UpdateView):
     form_class = CustomUserChangeForm
