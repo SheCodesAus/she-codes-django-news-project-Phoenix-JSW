@@ -26,42 +26,32 @@
 <div class="Profile-frame">
   <div class="center">
     
-        <div class="profile-card">
+        <div class="profile-container">
             <div class="image">
                 <div class="circle-1"></div>
                 <div class="circle-2"></div>
-                <img class=%static 'avatar-img' src="https://i.etsystatic.com/9193132/r/il/93fcac/1374669102/il_794xN.1374669102_kk7g.jpg;size=200" alt="Profile Image"</div>
+                <img class='avatar-img' src='{{ user.avatar }}' alt="Profile Image"/>
                 <div id="profile-text">
-                <h2 class="lead">{{request.user.get_full_name}}<width="70" height="70"</h2>
-            </div>
+                <h2 class="lead">{{request.user.get_full_name}}</h2>
+                </div>
             
-            <div class="name">{{ username }}</div>
-            <div class="location">{{ location }}</div>
-            <p>{{ user.first_name }}</p>
-            <p>{{ user.email }}</p>
-            <p>{{ user.bio }}</p>
-            
-            <div class="actions">
-                <button class="btn">Follow</button>
-                <button class="btn">Posts</button>
+            <section id="profile-section">
+
+                <div class="center">
+                  <h1>PROFILE</h1>
+                  <div class="signout"><a href="/">signout</a></div><br>
+                  <p>UserName:</p><h4>{{user.username}}</h4><br>
+                  <p>email:</p><h4>{{user.email}}</h4><br>
+                  <p>bio:</p><h4>{{user.bio}}</h4><br>
+                </div>
+
+                <div id="profile-function-buttons">
+                    {% comment %} {% if user.is_authenticated and user == object %} {% endcomment %}
+                    <a class="btn btn-secondary" href="{% url 'news:newsStory' %}">Write New Story</a>
+                    <a class="btn btn-primary" href="{% url 'users:userUpdate' %}">Edit profile</a>
             </div>
+            </section>
         </div>
-        
-        <div class="stats">
-            <div class="box">
-                <span class="value">102</span>
-                <span class="parameter">Posts</span>
-            </div>
-            <div class="box">
-                <span class="value">856</span>
-                <span class="parameter">Likes</span>
-            </div>
-            <div class="box">
-                <span class="value">12</span>
-                <span class="parameter">Follower</span>
-            </div>
-        </div>
-  </div>
+    </div>
 </div>
 {% endblock content %}
-

@@ -1,5 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:600,300);
 
+.image img{
+	width: 50px;
+}
+
+/* 
 
 
 .profile_frame {
@@ -41,8 +46,8 @@
 	width: 200px;
 	height: 320px;
 	text-align: center;
-	
-	.image {
+}
+.profile.image {
 		position: relative;
 		width: 70px;
 		height: 70px;
@@ -165,4 +170,4 @@
 		font-size: 11px;
 	}
 	
-}
+} */
