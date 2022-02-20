@@ -10,14 +10,29 @@
 <div id="story-wrapper">
     <h2>{{ story.title }}</h2>
     <h4>{{ story.author }}</h4>
+
+{% if user.is_authenticated and user == story.author %}
+    <div id="storypage-function-buttons">
     <a href="{% url 'news:editStory' story.slug %}">Edit this Story</a> </br>
     <a href="{% url 'news:deleteStory' story.slug %}">Delete this Story</a>
+    </div>
+{% endif %} 
+    
+<p>{% for category in story.story_category.all %}
+    <small><a class="text-primary" href="{% url 'news:categoryDetail' category.slug %}">{{ category }}</a></small>
+    {% endfor %}
+</p>
+{% comment %} <p>Published by <a class="text-primary" href="{% url 'users:authorDetail' story.author.slug %}">{{ story.author.get_full_name|default:story.author.username }}</a> on {{ story.pub_date }}{% if story.mod_date %} | Last updated: {{ story.mod_date }}{% endif %}</p> {% endcomment %}
+
     <div id="story-content">
-        {% if story.image %}
-        <img src="{{ story.image }}">
+        <div id="story-image-box">
+        {% if story.image.url %}
+            <img src="{{ story.image.url }}">
         {% else %}
-        <img src="{% static '../static/news/images/placeholder-1.jpg' %}">
+            <img src="{% static '../static/news/images/placeholder-1.jpg' %}">
         {% endif %}
+        </div>
+        <div id="story-text"
         {{ story.content|linebreaks }}
     </div>
 </div>

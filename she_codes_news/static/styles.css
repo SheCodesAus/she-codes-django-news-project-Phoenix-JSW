@@ -12,10 +12,6 @@ header {
     border-bottom: 1px solid #000;
 }
 
-/* img {
-    filter: grayscale(100%);
-} */
-
 h1 {
     font-family: 'Montserrat Subrayada', sans-serif;
     text-decoration: none;
@@ -24,17 +20,19 @@ h1 {
 }
 
 h2 {
-   font-family: 'Montserrat Subrayada', sans-serif; 
+   font-family: 'Montserrat Subrayada', sans-serif;
+   text-decoration: none;
 }
 
 h3 {
-    font-size: 2rem;
-    margin: 0;
+    font-size: 1rem;
+    margin: 10;
 }
 
 #header-text {
     flex-basis: 80%;
     display: flex;
+    text-decoration: none;
 }
 
 nav {
@@ -56,7 +54,7 @@ a, p {
 
 /* Header */
 header {
-    background:rgba(0, 0, 0, 0.5);
+    background:rgba(130, 162, 204, 0.5);
     background-position: center;
     height: 30vh;
     display: flex;
@@ -142,6 +140,22 @@ nav a:hover {
     color: #F9A526;
 }
 
+/* Messages */
+.messages,
+form ul {
+    list-style: none;
+    padding: 15px;
+    background-color: #F9A526;
+    margin: auto;
+    text-align: center;
+    width: fit-content;
+    margin-bottom: 30px;
+}
+
+.messages li {
+    font-size: 1rem;
+}
+
 /* FORM PAGES */
 .formpage-container {
     max-width: 900px;
@@ -150,6 +164,7 @@ nav a:hover {
 }
 
 form {
+    background-color: rgba(113, 150, 199, 0.5);
     display: flex;
     flex-direction: column;
     margin: auto;
@@ -167,13 +182,15 @@ form p {
 }
 
 .form-image {
-        min-height: 100vh;
-    }
+    min-height: 100vh;
+}
 
 .form-bg-image {
-    background-image: url('https://picsum.photos/id/1079/1080');
-    background-size: cover;
-    background-position: center center;
+    background: brown
+}
+
+.form-bottom-note{
+    text-align: center;
 }
 
 /* Profile Section */
@@ -201,7 +218,7 @@ form p {
     flex-wrap: wrap;
 }
 
-# #profile-text {
+#profile-text {
     margin-left: 50px;
 }
 
@@ -216,8 +233,30 @@ form p {
 }
 
 /* Images */
-.avatar-img {
-    height: auto;
+.image img {
+    height: 250px;
     width: 250px;
     object-fit: contain;
 }
+
+.profile-story-img{
+    height: 200px;
+    width: 200px;
+}
+
+/* STORY PAGE */
+
+#story-text {
+    flex-basis: 50%;
+}
+
+#story-image-box {
+    flex-basis: 50%;
+    margin-right: 30px;
+}
+
+#story-image-box img {
+    width: 100%;
+
+
+

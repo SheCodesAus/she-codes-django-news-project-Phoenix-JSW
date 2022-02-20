@@ -7,13 +7,16 @@
     {% block content %}
 
 <div id="home-container">
+    <h2>She Codes News Project</h2>
+    <p>Our task - to find the Cutest...Yet ugliest animals in the World</p>
     <div id="index-function-buttons">
         {% if user.is_authenticated %}
-        <p>Welcome back, {{ user.first_name|default:user.username }}! <i class="fas fa-arrow-right"></i></p>
+        
+        <h3>Welcome back, {{ user.first_name|default:user.username }}! <i class="fas fa-arrow-right"></i></h3>
         <a class="btn btn-secondary" href="{% url 'news:newsStory' %}">Write New Story</a>
         {% else %}
-        <p>Welcome to the She Codes News Page! Sign up or log in to get writing <i class="fas fa-arrow-right"></i></p>
-        <a class="btn btn-primary" href="{% url 'login' %}">Login To Write a New Story</a>
+        <p>Welcome to the She Codes News! - Sign up or Login To Write a New Story<i class="fas fa-arrow-right"></i></p>
+        <a class="btn btn-primary" href="{% url 'login' %}"> Write a New Story</a>
     {% endif %}
     </div>
 

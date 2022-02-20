@@ -9,8 +9,6 @@
             <h3>{{ story.title }}</h3>
             <h4>{{ story.author }}</h4>
             <h4>{{ story.pub_date }}</h4>
-            <a href="{% url 'news:editStory' story.slug %}">Edit this Story</a> </br>
-            <a href="{% url 'news:deleteStory' story.slug %}">Delete this Story</a>
         </div>
     </a>
 </div>

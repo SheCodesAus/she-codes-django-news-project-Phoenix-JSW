@@ -4,6 +4,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import NewsStory, Category, Comment
 from .forms import StoryForm, CommentForm, UpdateStoryForm
 from django.shortcuts import get_object_or_404, render
+from django.contrib import messages
 
 
 class IndexView(generic.ListView):
@@ -15,8 +16,8 @@ class IndexView(generic.ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['latest_stories'] = NewsStory.objects.all()[:4]
-        context['all_stories'] = NewsStory.objects.all()
+        context['latest_stories'] = NewsStory.objects.all().order_by('-pub_date')[:4]
+        context['all_stories'] = NewsStory.objects.all().order_by('-pub_date')
         return context
 
 

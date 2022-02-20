@@ -13,7 +13,7 @@
                 <img src="{{ story.image.url }}" alt="{{ story.title }}">
                 <div class="story-card-text">
                     <h3>{{ story.title }}</h3>
-                    <h4><a href="{% url 'users:author-detail' story.author.slug %}">{{ story.author }}</a></h4>
+                    <h4><a href="{% url 'users:authorDetail' story.author.slug %}">{{ story.author }}</a></h4>
                     <h4>{{ story.pub_date }}</h4>
                 </div>
             </a>
