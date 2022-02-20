@@ -45,8 +45,8 @@
                 <div id="profile-function-buttons">
                     {% comment %} {% if user.is_authenticated and user == object %} {% endcomment %}
                     <a class="btn btn-secondary" href="{% url 'news:newsStory' %}">Write New Story</a>
-                    <a class="btn btn-primary" href="{% url 'users:userUpdate' %}">Edit profile</a>
-                    <div class="signout"><a href="/">signout</a></div><br>
+                    <a class="btn btn-secondary" href="{% url 'users:userUpdate' %}">Udpate profile</a>
+                    <a class="btn btn-secondary" href="{% url 'logout' %}">Logout</a><br>
             </div>
             <div id="profile-news-container">
                 <h2 class="section-lead">My Stories</h2>
