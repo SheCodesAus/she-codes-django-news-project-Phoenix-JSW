@@ -37,8 +37,11 @@ class AddStoryView(LoginRequiredMixin, generic.CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
+
 class CategoryView(generic.DetailView):
     model = Category
+    template_name = "news/categoryDetail.html"
+    context_object_name = 'category'
 
 class UpdateStoryView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     login_url = 'users/login/'

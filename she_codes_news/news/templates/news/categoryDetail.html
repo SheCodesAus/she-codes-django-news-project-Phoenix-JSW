@@ -1,8 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
 {% block stylesheets %}
-<link rel="stylesheet" href="{% static 'styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
 {% endblock %}
 
 {% block content %}
+
 <div id="category-container">
     <h2 class="section-lead">{{ object.category }} Stories</h2>
 
@@ -13,7 +17,7 @@
                 <img src="{{ story.image.url }}" alt="{{ story.title }}">
                 <div class="story-card-text">
                     <h3>{{ story.title }}</h3>
-                    <h4><a href="{% url 'users:author_detail' story.author.slug %}">{{ story.author }}</a></h4>
+                    <h4><a href="{% url 'news:authorDetail' story.author.slug %}">{{ story.author }}</a></h4>
                     <h4>{{ story.pub_date }}</h4>
                 </div>
             </a>

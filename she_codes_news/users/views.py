@@ -31,7 +31,7 @@ class AuthorView(generic.DetailView):
 @login_required # Require user logged in before they can access profile page
 def profile(request):
     user=request.user
-    stories = NewsStory.objects.filter(author=user.id)
+    stories = NewsStory.objects.filter(author=user.id).order_by('-pub_date')
     return render(request,'users/userProfile.html',{'user':user, 'stories': stories})
 
 class UpdateAccountView(UpdateView):

@@ -17,12 +17,14 @@
     <a href="{% url 'news:deleteStory' story.slug %}">Delete this Story</a>
     </div>
 {% endif %} 
+
+{% comment %} <p>Published by <a class="text-primary" href="{% url 'users:authorDetail' story.author.slug %}">{{ story.author.get_full_name|default:story.author.username }}</a> on {{ story.pub_date }}{% if story.mod_date %} | Last updated: {{ story.mod_date }}{% endif %}</p> {% endcomment %}
     
 <p>{% for category in story.story_category.all %}
     <small><a class="text-primary" href="{% url 'news:categoryDetail' category.slug %}">{{ category }}</a></small>
     {% endfor %}
 </p>
-{% comment %} <p>Published by <a class="text-primary" href="{% url 'users:authorDetail' story.author.slug %}">{{ story.author.get_full_name|default:story.author.username }}</a> on {{ story.pub_date }}{% if story.mod_date %} | Last updated: {{ story.mod_date }}{% endif %}</p> {% endcomment %}
+
 
     <div id="story-content">
         <div id="story-image-box">
