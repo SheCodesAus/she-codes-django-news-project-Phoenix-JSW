@@ -10,11 +10,6 @@ class AuthorAdmin(admin.ModelAdmin):
     search_fields = ['title', 'content']
     prepopulated_fields = {'slug': ('title',)}
 
-    def get_readonly_fields(self, request, obj=None):
-        fields = []
-        if obj:
-            fields += ['slug']
-
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('name', 'content', 'story', 'pub_date', 'approved')
