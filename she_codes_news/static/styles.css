@@ -62,11 +62,11 @@ header {
     background-position: center;
     height: 30vh;
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: row;
     justify-content: center;
     align-content: center;
     position: relative;
-    padding: 0 10px;
+    padding: 0 20px;
     text-align: start;
     margin: auto;
 }
@@ -109,8 +109,12 @@ header::before {
 #header-text {
     display: inline-flex;
     align-items: right;
+    padding-right: 100px;
 }
 
+.codetext{
+    color: yellow;
+}
 
 /* Header-Navigation */
 header nav {
@@ -229,6 +233,7 @@ form p {
     height: 250px;
     width: 250px;
     object-fit: contain;
+
 }
 
 .profile-story-img{
@@ -244,15 +249,16 @@ form p {
 
 #story-image-box {
     flex-basis: 50%;
-    margin-right: 30px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #story-image-box img {
-    width: 100%;
+    width: 60%;
 }
 
 
-
+/* Buttons */
 .btn {
     display: inline-block;
     padding: 15px;
@@ -266,3 +272,4 @@ form p {
 .btn-dark { background-color: #000; }
   
 .btn:hover { background-color: #306472; }
+

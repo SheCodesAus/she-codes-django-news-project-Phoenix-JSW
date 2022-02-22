@@ -1,4 +1,11 @@
+#all-news-container {
+    padding: 50px 0;
+}
+
 .story-card {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
     margin: 2px;
     border: 1px solid #000;
     padding: 5px;
@@ -65,9 +72,9 @@
 }
 
 #all-stories {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
 }
 
 #all-stories .story-card {
@@ -76,11 +83,12 @@
 }
 
 #story-content {
+    justify-content: center;
     text-align: justify;
 }
 
 #story-content img {
-    float: right;
+    float: centre;
     margin: 0 0 10px 10px;
     width: 50%;
 }
