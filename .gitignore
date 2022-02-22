@@ -3,3 +3,5 @@ __pycache__/
 *.sqlite3
 *.vscode
 staticfiles
+she_codes_news/staticfiles/**
+!she_codes_news/staticfiles/.gitignore
