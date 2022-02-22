@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 # My Apps
     'news.apps.NewsConfig',
     'users.apps.UsersConfig',
+    'corsheaders',
    
 
 #Django Apps
@@ -55,6 +56,7 @@ INSTALLED_APPS = [
     ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
