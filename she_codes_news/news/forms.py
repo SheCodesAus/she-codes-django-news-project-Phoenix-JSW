@@ -15,7 +15,7 @@ class StoryForm(ModelForm):
     )
     class Meta:
         model = NewsStory
-        # fields = ['title', 'pub_date', 'image', 'story_category', 'content']
+        # fields = ['title', 'pub_date', 'image', 'categories', 'content']
         exclude = ['author', 'slug']
         labels = {'image': "Image URL"}
         widgets = {
@@ -41,7 +41,7 @@ class UpdateStoryForm(ModelForm):
     )
     class Meta:
         model = NewsStory
-        # fields = ['title', 'mod_date', 'image', 'story_category', 'content']
+        # fields = ['title', 'mod_date', 'image', 'categories', 'content']
         exclude = ['author', 'slug']
         labels = {'image': "Image URL"}
         widgets = {

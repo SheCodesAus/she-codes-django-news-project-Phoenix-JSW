@@ -16,8 +16,12 @@
         <a href="{% url 'news:story' story.slug %}">
             <img src="{{ story.image }}" alt="{{ story.title }}">
             <div class="story-card-text">
-                <h3>{{ story.title }}</h3>
+                <h2>{{ story.title }}</h3>
                 <h4>{{ story.pub_date }}</h4>
+                <div id="story-text"
+                {{ story.content|linebreaks }}
+                <p
+
             </div>
         </a>
     </div>        

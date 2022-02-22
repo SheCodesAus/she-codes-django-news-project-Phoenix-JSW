@@ -9,8 +9,10 @@ class AuthorAdmin(admin.ModelAdmin):
     list_filter = ("status",)
     search_fields = ['title', 'content']
     prepopulated_fields = {'slug': ('title',)}
+    
 
 @admin.register(Comment)
+
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('name', 'content', 'story', 'pub_date', 'approved')
     list_filter = ('approved', 'pub_date')

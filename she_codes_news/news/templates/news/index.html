@@ -8,7 +8,9 @@
 
 <div id="home-container">
     <h2>She Codes News Project</h2>
-    <p>My task - to find the Cutest...Yet ugliest animals in the World</p>
+    <p>Our task - to find the Cutest...Yet Ugliest animals in the World</p><br>
+
+
     <div id="index-function-buttons">
         {% if user.is_authenticated %}
         
@@ -16,7 +18,7 @@
         <a class="btn btn-secondary" href="{% url 'news:newsStory' %}">Write New Story</a>
         {% else %}
         <p>Welcome to the She Codes News! - Sign up or Login To Write a New Story<i class="fas fa-arrow-right"></i></p>
-        <a class="btn btn-primary" href="{% url 'login' %}"> Write a New Story</a>
+        <a class="btn btn-secondary" href="{% url 'login' %}"> Write a New Story</a>
     {% endif %}
     </div>
 
