@@ -11,4 +11,5 @@ urlpatterns = [
     path('<slug:slug>/edit-story/', views.UpdateStoryView.as_view(), name='editStory'),
     path('<slug:slug>/delete-story/', views.DeleteStoryView.as_view(), name='deleteStory'),
     path('<slug:slug>/category/', views.CategoryView.as_view(), name='categoryDetail'),
+    # path('category/<str:cats>', views.CategoryView, name='category'),
  ]

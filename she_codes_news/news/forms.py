@@ -15,9 +15,11 @@ class StoryForm(ModelForm):
     )
     class Meta:
         model = NewsStory
-        fields = ['title', 'pub_date', 'image', 'story_category', 'content']
+        # fields = ['title', 'pub_date', 'image', 'story_category', 'content']
+        exclude = ['author', 'slug']
         labels = {'image': "Image URL"}
         widgets = {
+            'slug': forms.HiddenInput(),
             'pub_date': forms.DateInput(
                 format = ('%m/%d/%Y'),
                 attrs={
@@ -25,10 +27,7 @@ class StoryForm(ModelForm):
                     'placeholder': 'Select a date',
                     'type': 'date'
                 }
-            ),
-            'category': forms.ModelMultipleChoiceField(
-                widget = forms.SelectMultiple,
-                queryset = Category.objects.all()
+
             ),
         }
 
@@ -42,9 +41,11 @@ class UpdateStoryForm(ModelForm):
     )
     class Meta:
         model = NewsStory
-        fields = ['title', 'mod_date', 'image', 'story_category', 'content']
+        # fields = ['title', 'mod_date', 'image', 'story_category', 'content']
+        exclude = ['author', 'slug']
         labels = {'image': "Image URL"}
         widgets = {
+            'slug': forms.HiddenInput(),
             'mod_date': forms.DateInput(format = ('%m/%d/%Y'),
                 attrs={
                     'class': 'form-control',

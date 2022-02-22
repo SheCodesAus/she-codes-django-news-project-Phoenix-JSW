@@ -6,22 +6,22 @@ import uuid
 from django.template.defaultfilters import slugify 
 
 class Category(models.Model):
-    category = models.CharField(max_length=100)
-    slug = models.SlugField(unique=True, default=uuid.uuid4)
+    name = models.CharField(max_length=100)
+    slug = models.SlugField()
 
     class Meta:
-        ordering = ['category']
+        ordering = ['name']
         verbose_name_plural = "categories"
     
     def __str__(self):
-        return self.category
+        return self.name
     
     def get_absolute_url(self):
-        return reverse('#', kwargs={'slug': self.slug})
+        return reverse('news:category', kwargs={'slug': self.slug})
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.title)
+            self.slug = slugify(self.name)
         return super().save(*args, **kwargs)
 
 STATUS = (
@@ -46,7 +46,7 @@ class NewsStory(models.Model):
     mod_date = models.DateTimeField(blank=True, null=True)
     content = models.TextField()
     image = models.URLField(null=True, blank=True)
-    story_category = models.ManyToManyField(Category, related_name='stories')
+    categories = models.ManyToManyField(Category, related_name='stories')
     slug = models.SlugField(unique=True, default=uuid.uuid4)
     status = models.CharField(max_length=10, choices=options, default='draft')     
           

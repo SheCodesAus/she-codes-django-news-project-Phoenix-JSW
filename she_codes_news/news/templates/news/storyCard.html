@@ -3,7 +3,7 @@
         {% if story.image %}
         <img src="{{ story.image }}">
         {% else %}
-        <img src="../static/news/images/placeholder-1.jpg">
+        <img src="../static/news/images/placeholder-1.jpg" alt='placeholder'>
         {% endif %}
         <div class="story-card-text">
             <h3>{{ story.title }}</h3>
@@ -12,3 +12,5 @@
         </div>
     </a>
 </div>
+
+

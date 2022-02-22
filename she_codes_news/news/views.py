@@ -40,8 +40,7 @@ class AddStoryView(LoginRequiredMixin, generic.CreateView):
 
 class CategoryView(generic.DetailView):
     model = Category
-    template_name = "news/categoryDetail.html"
-    context_object_name = 'category'
+
 
 class UpdateStoryView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     login_url = 'users/login/'
@@ -65,26 +64,7 @@ def story_detail(request, slug):
     story = get_object_or_404(NewsStory, slug=slug)
     comments = story.comments.all()
     new_comment = None
-    # Comment posted
-    if request.method == 'POST':
-        comment_form = CommentForm(data=request.POST)
-        if comment_form.is_valid() and request.user.is_authenticated:
-            # Create Comment object but don't save to database yet
-            new_comment = comment_form.save(commit=False)
-            # Assign the current story to the comment
-            new_comment.story = story
-            new_comment.name = request.user
-            # Save the comment to the database
-            new_comment.save()
-        else:
-            messages.error(request, 'Please login or register to leave a comment.')
-    else:
-        comment_form = CommentForm()
 
-    return render(request, template_name, {'story': story,
-                                           'comments': comments,
-                                           'new_comment': new_comment,
-                                           'comment_form': comment_form})
 
 class DeleteStoryView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
     login_url = 'users/login/'
