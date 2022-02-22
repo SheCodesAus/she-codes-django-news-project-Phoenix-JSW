@@ -255,6 +255,7 @@ form p {
 
 #story-image-box img {
     width: 60%;
+    inline-size: 500px;
 }
 
 
