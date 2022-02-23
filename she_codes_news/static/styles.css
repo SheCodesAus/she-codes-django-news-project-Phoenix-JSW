@@ -287,9 +287,14 @@ form p {
   
 .btn:hover { background-color: #306472; }
 
+.container404 {
+    display: flex;
+}
+
 .box404 {
     width: 60vw;
-    min-width: 360px; 
+    min-width: 360px;
+    max-width: 900px;
     text-align: center;
     margin: 5% auto; 
 }
