@@ -3,6 +3,7 @@
 body {
     background-color: rgb(116, 147, 206);
     font-size: 17px;
+    font-family: 'Playfair Display', serif;
 }
 
 header {
@@ -190,6 +191,7 @@ form p {
 }
 
 /* Profile Section */
+
 .profile-container {
     max-width: 900px;
     margin: auto;
@@ -206,6 +208,7 @@ form p {
 #profile-card {
     display: flex;
     margin: 20px 0;
+    border-color: #271177;
 }
 
 #profile p {
@@ -236,6 +239,12 @@ form p {
 	height: 50%;
 	margin: 0 50px;
 }
+
+.profile-story-img{
+    max-width:100%
+}
+
+
 /* Images */
 .image img {
     height: 250px;
@@ -244,10 +253,6 @@ form p {
 
 }
 
-.profile-story-img{
-    height: 200px;
-    width: 200px;
-}
 
 /* STORY PAGE */
 
@@ -282,3 +287,9 @@ form p {
   
 .btn:hover { background-color: #306472; }
 
+.box404 {
+    width: 60vw;
+    min-width: 360px; 
+    text-align: center;
+    margin: 5% auto; 
+}
