@@ -28,7 +28,7 @@ def createAccount(request):
 class AuthorView(generic.DetailView):
     model = CustomUser
 
-@login_required # Require user logged in before they can access profile page
+@login_required # Require user to login before they can access profile page
 def profile(request):
     user=request.user
     stories = NewsStory.objects.filter(author=user.id).order_by('-pub_date')

@@ -4,7 +4,7 @@
 	width: 100px;
 }
 .avatar-img img{
-    width: 150px;
+    max-width: 400px;
 	border-radius:50px;
 }
 
