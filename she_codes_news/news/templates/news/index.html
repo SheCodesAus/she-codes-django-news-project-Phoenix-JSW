@@ -8,13 +8,15 @@
 
 <div id="home-container">
     <h2>She Codes News Project</h2>
-    <p>Our task - to find the Cutest...Yet Ugliest animals in the World</p><br>
+    <h3>This months Project is to find to find the Ugliest Animal in the World...Yet some would deem them the cutest!</h3><br>
 
-
-    <div id="index-function-buttons">
+    <div id="home-header"> 
         {% if user.is_authenticated %}
         
-        <h3>Welcome back, {{ user.first_name|default:user.username }}! <i class="fas fa-arrow-right"></i></h3>
+        <h3>Welcome back, {{ user.first_name|default:user.username }}! </h3>
+
+        <div id="index-function-buttons">
+        
         <a class="btn btn-secondary" href="{% url 'news:newsStory' %}">Write New Story</a>
         {% else %}
         <p>Welcome to the She Codes News! - Sign up or Login To Write a New Story<i class="fas fa-arrow-right"></i></p>

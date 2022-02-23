@@ -13,3 +13,4 @@ urlpatterns = [
     path('<slug:slug>/category/', views.CategoryView.as_view(), name='categoryDetail'),
     # path('category/<str:cats>', views.CategoryView, name='category'),
  ]
+handler404 = views.handler404

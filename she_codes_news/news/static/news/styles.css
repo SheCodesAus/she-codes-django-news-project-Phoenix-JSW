@@ -3,12 +3,15 @@
 }
 
 .story-card {
+    background-color:rgb(87, 124, 190);
     display: flex;
     flex-direction: column;
     text-align: center;
-    margin: 2px;
+    margin: 4px;
     border: 1px solid #000;
-    padding: 5px;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px rgb(56, 52, 52);
 }
 
 .story-card img {
@@ -73,8 +76,9 @@
 
 #all-stories {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+    
 }
 
 #all-stories .story-card {

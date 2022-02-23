@@ -1,26 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
 {% block stylesheets %}
-<link rel="stylesheet" href="{% static 'styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
 {% endblock %}
 
 {% block content %}
-<div id="category-container">
-    <h2 class="section-lead">{{ object.category }} Stories</h2>
 
-    {% if object.stories.all %}
-        {% for story in object.stories.all %}
-        <div class="story-card" id="story-card-{{ position }}">
-            <a href="{% url 'news:story' story.slug %}">
-                <img src="{{ story.image }}" alt="{{ story.title }}">
-                <div class="story-card-text">
-                    <h3>{{ story.title }}</h3>
-                    <h4><a href="{% url 'users:authorDetail' story.author.slug %}">{{ story.author }}</a></h4>
-                    <h4>{{ story.pub_date }}</h4>
-                </div>
-            </a>
-        </div>        
-        {% endfor %}
-    {% else %}
-        <p>There are no stories in this category yet.</p>
-    {% endif %}
+<section class="404container">
+	<div class="box404">
+		<h1>404</h1>
+        <h2>Page not found</h2>
+        <a href="https://tutsplus.com">
+            <img src="https://cdn.mos.cms.futurecdn.net/PuXipAW3AXUzUJ4uYyxPKC-1200-80.jpg">
+        </a>
+        <p>Best head back to the home page and look elsewhere.</p>
+        <a class="btn btn-primary" href="{% url 'news:index' %}">Back to Homepage</a>
 </div>
+</section>
+
 {% endblock %}
