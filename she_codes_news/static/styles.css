@@ -288,13 +288,17 @@ form p {
 .btn:hover { background-color: #306472; }
 
 .container404 {
+    padding: 50px 0;
     display: flex;
 }
 
 .box404 {
-    width: 60vw;
-    min-width: 360px;
-    max-width: 900px;
+    display: flex;
+    flex-direction: column;
     text-align: center;
-    margin: 5% auto; 
+    margin: 4px;
+    border: 1px solid #000;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px rgb(56, 52, 52);
 }
