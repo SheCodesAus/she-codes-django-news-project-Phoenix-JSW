@@ -23,7 +23,7 @@ def createAccount(request):
             return redirect('login')
     else:
         form = CustomUserCreationForm()
-    return render(request, 'users/CreateAccount.html', {'form': form})
+    return render(request, 'users/createAccount.html', {'form': form})
 
 class AuthorView(generic.DetailView):
     model = CustomUser
