@@ -322,6 +322,7 @@ form p {
 .box404 {
     display: flex;
     flex-direction: column;
+    color: rgb(250, 243, 243);
     text-align: center;
     max-width: 100%;
     margin: 4px;
