@@ -7,14 +7,13 @@
     {% block content %}
 
 <div id="home-container">
-    <h2>She Codes News Project</h2>
-    <h3>This months Project is to find to find the Ugliest Animal in the World...Yet some would deem them the cutest!</h3><br>
-
-    <div id="home-header"> 
+     <div id="home-header"> 
         {% if user.is_authenticated %}
         
-        <h3>Welcome back, {{ user.first_name|default:user.username }}! </h3>
-
+        <h4>Welcome back, {{ user.first_name|default:user.username }}! </h4>
+        <h2>She Codes News Project</h2>
+        <h3>This months fixtures are dedicated to:</br>
+        The GOOD!...The BAD!...and The UGLY! </h3><br>
         <div id="index-function-buttons">
         
         <a class="btn btn-secondary" href="{% url 'news:newsStory' %}">Write New Story</a>
