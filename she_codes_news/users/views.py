@@ -3,7 +3,7 @@ from django.views.generic.edit import CreateView, UpdateView
 from django.views import generic
 from .models import CustomUser
 from news.models import NewsStory
-from .forms import CustomUserCreationForm, CustomUserChangeForm, UpdateProfileForm
+from .forms import CustomUserCreationForm, CustomUserChangeForm
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required

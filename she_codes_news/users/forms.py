@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from .models import CustomUser, Profile
+from .models import CustomUser, profile
 
 
 class CustomUserCreationForm(UserCreationForm):
@@ -16,12 +16,12 @@ class CustomUserChangeForm(UserChangeForm):
         fields = ['avatar', 'username','first_name', 'last_name', 'email', 'location', 'bio']
         
 
-class UpdateProfileForm(forms.ModelForm):
+class UpdateprofileForm(forms.ModelForm):
         image = forms.URLField(widget=forms.FileInput(attrs={'class': 'form-control-file'}))
         bio = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control', 'rows': 5}))
 
         class Meta:
-            model = Profile
+            model = profile
             fields = ['image', 'bio']
             labels = {'bio': 'About'}
 

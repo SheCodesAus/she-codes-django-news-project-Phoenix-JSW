@@ -13,11 +13,11 @@ class CustomUser(AbstractUser):
     def __str__(self):
         return self.username
 
-class Profile(models.Model):
+class profile(models.Model):
     CustomUser = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
-    Profile_img = models.URLField(default='default.jpg')
+    profile_img = models.URLField(default='default.jpg')
 
     def __str__(self):
-        return f'{self.CustomUser.username} Profiles'
+        return f'{self.CustomUser.username} profile'
 
  
