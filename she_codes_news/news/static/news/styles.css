@@ -76,14 +76,14 @@
 
 #all-stories {
     display: grid;
-    gap: 20px;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    grid-auto-flow: column;
+    grid-template-columns: 186px 186px 186px 186px;
     
 }
 
 #all-stories .story-card {
-    flex-basis: 32%;
-    flex-grow: 1;
+    flex-basis: 50%;
 }
 
 #story-content {

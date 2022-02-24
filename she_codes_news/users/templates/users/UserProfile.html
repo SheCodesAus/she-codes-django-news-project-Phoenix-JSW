@@ -25,9 +25,12 @@
 
 
 <!-- Profile Section -->
+
+<div class="formpage-container">
+    <h2 class="section-lead">Profile</h2>
     <section id="profile-section">
+
         <div class="profile-card">
-            <h1>PROFILE</h1>
             <div class="avatar-img">
                 <img class='avatar-img' src='{{ user.avatar }}' alt="Profile Image"/>
             <div id="profile-text">
@@ -48,7 +51,9 @@
 
     <section id="profile-news-container">
         <h2 class="section-lead">My Stories</h2>
-        <div id="latest-stories">
+
+        <div id="profile-latest-stories">
+
             {% comment %} {% if latest_stories %} {% endcomment %}
                 {% for story in stories %}
                     {% include "news/storyCard.html" with story=story position=forloop.counter %}
