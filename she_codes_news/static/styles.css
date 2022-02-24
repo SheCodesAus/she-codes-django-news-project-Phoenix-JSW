@@ -328,8 +328,7 @@ form p {
     border: 1px solid #000;
     padding: 10px;
     border-radius: 20px;
-    box-shadow: 2px 2px 2px rgb(56 52 52);
-}
+    }
 
 .box404 img{
     max-width:100%;

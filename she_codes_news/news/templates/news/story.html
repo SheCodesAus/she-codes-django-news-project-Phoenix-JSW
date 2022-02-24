@@ -13,8 +13,8 @@
 
 {% if user.is_authenticated and user == story.author %}
     <div id="storypage-function-buttons">
-    <a href="{% url 'news:editStory' story.slug %}">Edit this Story</a> </br>
-    <a href="{% url 'news:deleteStory' story.slug %}">Delete this Story</a>
+    <a class="btn btn-primary" href="{% url 'news:editStory' story.slug %}">Edit this Story</a> </br>
+    <a class="btn btn-seconday"href="{% url 'news:deleteStory' story.slug %}">Delete this Story</a>
     </div>
 {% endif %} 
 

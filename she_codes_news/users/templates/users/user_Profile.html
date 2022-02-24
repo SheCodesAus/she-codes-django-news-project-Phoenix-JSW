@@ -29,11 +29,12 @@
                 <p>bio:</p><h4>{{user.bio}}</h4><br>
         </div>
     </section>
-                <div id="profile-function-buttons">
-                    {% comment %} {% if user.is_authenticated and user == object %} {% endcomment %}
-                    <a class="btn btn-secondary" href="{% url 'news:newsStory' %}">Write New Story</a>
-                    <a class="btn btn-secondary" href="{% url 'users:userUpdate' %}">Udpate Profile</a>
-                    <a class="btn btn-secondary" href="{% url 'logout' %}">Logout</a><br>
+            <div id="profile-function-buttons">
+
+                <a class="btn btn-secondary" href="{% url 'news:newsStory' %}">Write New Story</a>
+                <a class="btn btn-secondary" href="{% url 'users:userUpdate' %}">Udpate Profile</a>
+                <a class="btn btn-secondary" href="{% url 'logout' %}">Logout</a><br>
+       
             </div>
 
     <section id="profile-news-container">
@@ -41,7 +42,7 @@
 
         <div id="profile-latest-stories">
 
-            {% comment %} {% if latest_stories %} {% endcomment %}
+
                 {% for story in stories %}
                     {% include "news/storyCard.html" with story=story position=forloop.counter %}
                 {% endfor %}

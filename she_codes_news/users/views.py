@@ -32,7 +32,7 @@ class AuthorView(generic.DetailView):
 def profile(request):
     user=request.user
     stories = NewsStory.objects.filter(author=user.id).order_by('-pub_date')
-    return render(request,'users/userProfile.html',{'user':user, 'stories': stories})
+    return render(request,'users/user_Profile.html',{'user':user, 'stories': stories})
 
 class UpdateAccountView(UpdateView):
     form_class = CustomUserChangeForm
