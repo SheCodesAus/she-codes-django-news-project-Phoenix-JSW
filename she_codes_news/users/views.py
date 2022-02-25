@@ -36,7 +36,7 @@ def profile(request):
 
 class UpdateAccountView(UpdateView):
     form_class = CustomUserChangeForm
-    success_url = reverse_lazy('users:profile')
+    success_url = reverse_lazy('users:user_Profile')
     template_name = 'users/userUpdate.html'
 
     def get_object(self, queryset=None):
