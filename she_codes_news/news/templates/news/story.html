@@ -32,9 +32,9 @@
             <img src="{% static '../static/news/images/placeholder-1.jpg' %}">
         {% endif %}
         </div>
-        <div id="story-text"
-        {{ story.content|linebreaks }}
+        <div id="story-text">
+        {{ story.content | linebreaks }}
+        </div>
     </div>
-</div>
 
 {% endblock %} 
