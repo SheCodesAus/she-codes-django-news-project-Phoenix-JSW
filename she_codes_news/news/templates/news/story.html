@@ -8,13 +8,14 @@
 {% block content %}
 
 <div id="story-wrapper">
+    <div class="full-story"
     <h2>{{ story.title }}</h2>
     <h4>{{ story.author }}</h4>
 
 {% if user.is_authenticated and user == story.author %}
     <div id="storypage-function-buttons">
     <a class="btn btn-primary" href="{% url 'news:editStory' story.slug %}">Edit this Story</a> </br>
-    <a class="btn btn-seconday"href="{% url 'news:deleteStory' story.slug %}">Delete this Story</a>
+    <a class="btn btn-primary"href="{% url 'news:deleteStory' story.slug %}">Delete this Story</a>
     </div>
 {% endif %} 
 
@@ -31,10 +32,9 @@
         {% else %}
             <img src="{% static '../static/news/images/placeholder-1.jpg' %}">
         {% endif %}
-        </div>
         <div id="story-text">
         {{ story.content | linebreaks }}
         </div>
     </div>
-
+</div>
 {% endblock %} 

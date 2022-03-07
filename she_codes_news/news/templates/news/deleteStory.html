@@ -2,13 +2,13 @@
 {% load static %}
 
 {% block stylesheets %}
-<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'customstyles.css' %}">
 {% endblock %}
 
 {% block content %}
 <div class="formpage-container">
     <div class="form-function-buttons">
-        <a class="btn btn-secondary" href="{% url 'news:story' object.slug %}">Return to Story.</a>
+        <a class="btn btn-primary" href="{% url 'news:story' object.slug %}">Return to Story.</a>
     </div>
     <h2>Delete Story</h2>
     

@@ -2,55 +2,61 @@
     {% load static %}
     
     {% block stylesheets %}
-    <link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'customstyles.css' %}">
     {% endblock %}
     {% block content %}
 
+
 <div id="home-container">
-     <div id="home-header"> 
+    <section class="site title">
+      <div id="index-functions">
         {% if user.is_authenticated %}
         
-        <h4>Welcome back, {{ user.first_name|default:user.username }}! </h4>
+        <p>Welcome back, {{ user.first_name|default:user.username }}! ---<a class="btn btn-primary" href="{% url 'news:newsStory' %}">Write New Story</a></p>
+
         <h2>She Codes News Project</h2>
         <h3>This months fixtures are dedicated to:</br>
         The GOOD!...The BAD!...and The UGLY! </h3><br>
-        <div id="index-function-buttons">
-        
-        <a class="btn btn-secondary" href="{% url 'news:newsStory' %}">Write New Story</a>
-        {% else %}
 
         
-        <h2>Welcome to the She Codes News!</h3>
-        <a class="btn btn-secondary" href="{% url 'login' %}"> Write a New Story</a> <p>Register or Login To Write a New Story</p>
+        {% else %}
+        <div class="page-title">
+            <h2>Welcome to the She Codes News!</h2><br/>
+        </div>
+        <div class="page-text>"
+        <p>Sign up or Login To Write a New Story - 
+            <a class="btn btn-primary" href="{% url 'login' %}"> Write a New Story</a><p><br/>
+ 
     {% endif %}
     </div>
-
-<div id="latest-news-container">
-    <h2 class="section-lead">Latest News</h2>
-    <div id="latest-stories">
-        {% if latest_stories %}
-            {% for story in latest_stories %}
-                {% include "./storyCard.html" with story=story position=forloop.counter %}
-            {% endfor %}
-        {% else %}
+    </section>  
+    <div id="latest-news-container">
+        <h2 class="section-lead">Latest Stories</h2>
+        <div id="latest-stories">
+            {% if latest_stories %}
+                {% for story in latest_stories %}
+                    {% include "./storyCard.html" with story=story position=forloop.counter %}
+                {% endfor %}
+            {% else %}
             <p>No stories are available.</p>
-        {% endif %}
+            {% endif %}
+        </div>
+    </div>
+    
+    <div id="all-news-container">
+        <h2 class="section-lead">All News Stories</h2>
+        <div id="all-stories">
+            {% if latest_stories %}
+                {% for story in all_stories %}
+                    {% include "./storyCard.html" with story=story %}
+                {% endfor %}
+            {% else %}
+            <p>No stories are available.</p>
+            {% endif %}
+        </div>
     </div>
 </div>
 
-<div id="all-news-container">
-    <h2 class="section-lead">All News Stories</h2>
-        {% if all_stories %}
-            {% for story in all_stories %}
-                {% include "./storyCard.html" with story=story %}
-            {% endfor %}
-        {% else %}
-            <p>No stories are available.</p>
-        {% endif %}
-    </div>
-</div>
-
-    <a href="{% url 'news:newsStory' %}">Write New Story</a>
 
     {% endblock %}
 

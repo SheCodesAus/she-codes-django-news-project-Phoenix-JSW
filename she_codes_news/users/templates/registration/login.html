@@ -3,7 +3,7 @@
 
 
 {% block stylesheets %}
-<link rel="stylesheet" href="{% static 'styles.css' %}">
+<link rel="stylesheet" href="{% static 'customstyles.css' %}">
 {% endblock stylesheets %}
 
 {% block content %}
@@ -12,13 +12,17 @@
     <h2 class="section-lead">Login</h2>
 
     <form method="post">
+
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4"> Login here or go to Registration Page! </legend>
+
         {% csrf_token %}
         <fieldset class="form-group">
             {{ form.as_p }}
         </fieldset> 
 
         <div class="form-group">
-            <button class="btn btn-success" type="submit">Login</button>
+            <button class="btn btn-primary" type="submit">Login</button>
         </div>
         <hr class="mb-2">
             <p class="small text-center">

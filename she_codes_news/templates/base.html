@@ -4,34 +4,65 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale1.0">
         <title>She Codes News</title>
         <meta name="description" content="">
         <meta name="author" content="Janine Anthony-Wylds">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Tangerine&display=swap" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+        <! ---- Font Awesome Icons ---->
+        <script src="https://kit.fontawesome.com/cb474fdf10.js" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" type="text/css" href="{% static 'customstyles.css' %}">
+
         {% block stylesheets %}{% endblock %}
+        <!-- reference your installed Font Awesome Free package's files here -->
+        <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
     </head>
 
+        
     <body>
+        <a name="top"></a>
+        <!-- Headerbar here -->
         <header>
-            <div id="header-container-top">
+            
+            <div id="header-top">
+                <div class
                 <div id="header-text">
                     <a id="header-link" href="{% url 'news:index' %}">
-                        <h1>
-                            <span style="color: #fff">She</span>
-                            <span style="color: #F9A526">{Codes}</span>
-                            <span style="color: #fff">News</span>
-                        </h1>
+                        <img class="header-logo" src="{% static 'she_codes_news/shecodes_logo_purple.png' %}" alt="She {Codes} News">
                     </a>
                 </div>
-            </div>
-            <!-- include nav here -->
-            {% include './nav.html' %}
-        </header>
+                <div class ="toggle-collapse">
+                    <div class="toggle-icons">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>      
 
-        <!-- content blocks here -->
+
+                <!-- include nav here -->
+                <div class="nav">
+                    {% include './nav.html' %}
+                </div>
+            </div>
+
+            <div id="header-bottom">
+                <h1 id="page-heading">DJANGO... Story Project!</h1>
+                <p id="header-subtitle">Where things change Monthly... Find out whats new this Month!</p>
+            </div>
+
+
+        <div>
+        
+        </header>
+       
+
+        <!-- include JavaScript here -->
+        <!---<script src="./static/main.js">--->
+
+        <! -- content blocks here -->
         {% block content %} {% endblock %}
+        <a href="#top">top</a>
     </body>
 </html>

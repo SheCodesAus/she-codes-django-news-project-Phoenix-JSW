@@ -3,7 +3,7 @@
 
 
 {% block stylesheets %}
-<link rel="stylesheet" href="{% static 'users/styles.css' %}">
+<link rel="stylesheet" href="{% static 'customstyles.css' %}">
 {% endblock stylesheets %}
 
 
@@ -11,42 +11,69 @@
 <!-- profile Section -->
 
 <div id="profile-container">
-    <div class="formpage-container">
-        <h2 class="section-lead">Profile</h2>
-    <section id="profile-section">
+    <h2 class="section-lead">Profile</h2>
+        <section id="profile-section">
 
-        <div class="profile-card">
-            <div class="avatar-img">
-                <img class='avatar-img' src='{{ user.avatar }}' alt="profile Image"/>
-            <div>
+            <div class="profile-card">
+                <div class="avatar-img">
+                    <img class='avatar-img' src='{{ user.avatar }}' alt="profile Image"/>
+                    <div>
+                <div id="profile-text">
+                    <h2 class="lead">{{request.user.get_full_name}}</h2>
+                    <p>UserName:</p><h4>{{user.username}}</h4>
+                    <p>email:</p><h4>{{user.email}}</h4>
 
-            <div id="profile-text">
-                <h2 class="lead">{{request.user.get_full_name}}</h2>
-                <p>UserName:</p><h4>{{user.username}}</h4><br>
-                <p>email:</p><h4>{{user.email}}</h4><br>
-                <p>bio:</p><h4>{{user.bio | linebreaks}}</h4><br>
-            
+                    <p>bio:</p><h4>{{user.bio | linebreaks}}</h4><br>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
             <div id="profile-function-buttons">
-                <a class="btn btn-secondary" href="{% url 'news:newsStory' %}">Write New Story</a>
-                <a class="btn btn-secondary" href="{% url 'users:userUpdate' %}">Update profile</a>
-                <a class="btn btn-secondary" href="{% url 'logout' %}">Logout</a><br>
+                <a class="btn btn-primary" href="{% url 'news:newsStory' %}">Write New Story</a>
+                <a class="btn btn-primary" href="{% url 'users:userUpdate' %}">Update profile</a>
+                <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a><br>
        
             </div>
 
-    <section id="profile-news-container">
-        <h2 class="section-lead">My Stories</h2>
+        {% comment %} <section id="profile-news-container">
+            <h2 class="section-lead">My Stories</h2>
 
-        <div id="profile-latest-stories">
-
+            <div id="all-stories">
 
                 {% for story in stories %}
                     {% include "news/storyCard.html" with story=story position=forloop.counter %}
                 {% endfor %}
-        </div>        
-    </section>
-</div>
+            </div>         {% endcomment %}
+
+<! ----- Author Story Section ----->
+        
+        <section id="profile-news-container">
+            <h2 class="section-lead">My Stories</h2>
+
+            <div id="profile-all-stories">
+            {% for story in stories %}
+                <div class="story-card" id="story-card-{{ position }}">
+                  
+                <a href="{% url 'news:story' story.slug %}">
+                    <!---- Story Content ---->
+                    <img src="{{ story.image }}" alt="{{ story.title }}">
+                    
+                        <div class="story-card-text">
+                        <h3 class="story-card-headline">{{ story.title }}</h3>
+                        <h4>{{ story.author }}</h4>
+                        <p>{{ story.pub_date }} |
+                            
+                            
+                            <p>{% for category in story.categories.all %}
+                                <small><a class="text-primary" href="{% url 'news:categoryDetail' category.slug %}">{{ category }}</a></small>
+                                {% endfor %}
+                            </p>
+                    
+                </a>
+            </div> 
+            </div>  
+            {% endfor %} 
+        </section>        
+           
+
 
 {% endblock content %}

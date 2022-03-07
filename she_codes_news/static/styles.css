@@ -190,69 +190,6 @@ form p {
     text-align: center;
 }
 
-/* profile Section */
-
-.profile-container {
-    max-width: 900px;
-    margin: auto;
-    padding: 20px 20px 50px 20px;
-}
-
-#profile-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: auto;
-    padding: 30px 0 50px 0;
-}
-
-#profile-card {
-    display: flex;
-    padding: 20px 20px 20px;
-    margin: 20px 0;
-    border-color: #271177;
-}
-
-#profile p {
-    display: flex;
-    margin: 20px 0;
-    flex-wrap: wrap;
-}
-
-#profile-text {
-    font-family: 'Playfair Display', serif;
-    margin-left: 50px;
-}
-
-#profile-function-buttons {
-    display: flex; 
-    justify-content: flex-end;
-    padding-bottom: 50px;
-}
-
-#profile-function-buttons a {
-    margin: 0 10px;
-}
-
-.profile-news-container{ 
-	display: flex;
-	justify-content: space-evenly;
-	align-items: center;
-	height: 50%;
-	margin: 0 50px;
-}
-
-.profile-story-img{
-    max-width:100%
-}
-
-
-/* Images */
-.image img {
-    height: 250px;
-    width: 250px;
-    object-fit: contain;
-}
 
 
 /* STORY PAGE */
@@ -289,7 +226,7 @@ form p {
 }
 
 .btn-primary { background-color: #271177; }
-.btn-secondary { background-color:rgb(78, 93, 163); }
+.btn-primary { background-color:rgb(78, 93, 163); }
 .btn:hover { background-color: #306472; }
 
 

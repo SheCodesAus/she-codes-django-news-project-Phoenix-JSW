@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'news.apps.NewsConfig',
     'users.apps.UsersConfig',
     'corsheaders',
+    'fontawesomefree',
    
 
 #Django Apps

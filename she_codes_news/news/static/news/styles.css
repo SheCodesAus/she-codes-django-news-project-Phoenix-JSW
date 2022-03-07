@@ -1,12 +1,41 @@
-#all-news-container {
-    padding: 50px 0;
+#home-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
 }
 
+#index-functions {
+    width: 100%;
+    padding-top: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+#index-functions p {
+    text-align:start
+}
+/* ----- Headings -----*/
+
+
+/* --x-- Home Pages - Main Site--x-- */
+
+
+/* ----- Latest News Container----- */
+#latest-news-container {
+    margin-top: 3px;
+    padding: 0 20px 0;
+}
+
+
 .story-card {
-    background-color:rgb(87, 124, 190);
+    margin: 4px;
+    background-color: #d7d3d8;
+    text-align: center;
     display: flex;
     flex-direction: column;
-    text-align: center;
+    border-radius: 2px;
     margin: 4px;
     border: 1px solid #000;
     padding: 10px;
@@ -16,9 +45,19 @@
 
 .story-card img {
     width: 100%;
-    height: 100%;
+    min-height: 100px;
     object-fit: cover;
 }
+
+.story-card-headline {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.story-card-text {
+    padding: 5px 5px;
+}
+
 
 #latest-stories {
     display: grid;
@@ -26,7 +65,6 @@
     grid-template-rows: 1fr 1fr 1fr;
     gap: 1px 1px;
     grid-template-areas: "left-1 right-1" "left-1 right-2" "left-1 right-3";
-    max-height: 500px;
 }
 
 #story-card-1 {
@@ -53,15 +91,23 @@
 #story-card-3 a,
 #story-card-4 a {
     display: flex;
-    max-height: 120px;
+    
     width: 100%;
     height: 100%;
+}
+
+#story-card-1 .story-card-text h3{
+    font-size: 26px;
 }
 
 #story-card-2 .story-card-text h3,
 #story-card-3 .story-card-text h3,
 #story-card-4 .story-card-text h3 {
     font-size: 16px;
+}
+
+#story-card-1 .story-card-text h4{
+    font-size: 20px;
 }
 
 #story-card-2 .story-card-text h4,
@@ -73,7 +119,7 @@
 #story-card-2 img,
 #story-card-3 img,
 #story-card-4 img {
-    width: 33%;
+    width: 50%;
     height: 100%;
     margin-right: 5px;
 }
@@ -85,6 +131,27 @@
     grid-template-columns: 186px 186px 186px 186px;
 }
 
+
+
+#all-news-container {
+    padding: 40px 0;
+}
+
+#all-stories {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+#all-news-container {
+    padding: 50px 0;
+}
+
+#all-stories {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
 #all-stories .story-card {
     flex-basis: 50%;
 }
@@ -94,8 +161,3 @@
     text-align: justify;
 }
 
-#story-content img {
-    float: centre;
-    margin: 0 0 10px 10px;
-    width: 50%;
-}
